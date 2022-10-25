@@ -22,7 +22,7 @@ for i in range(min(arr), max(arr) + 1):
             if bk[0] > i:
                 B += (bk[0] - i) * bk[1]
                 t += ((bk[0] - i) * bk[1]) * 2
-            elif bk[0] < i:
+            else:
                 B -= (i - bk[0]) * bk[1]
                 t += (i - bk[0]) * bk[1]
         if B < 0:
