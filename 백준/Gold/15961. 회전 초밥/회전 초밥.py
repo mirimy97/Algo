@@ -8,10 +8,7 @@ for n in range(N):
 h = {}
 h[c] = 1
 for i in range(k):
-    if nums[i] in h:
-        h[nums[i]] += 1
-    else:
-        h[nums[i]] = 1
+    h[nums[i]] = h.get(nums[i], 0) + 1
 
 max_eat = 0
 for i in range(N):
