@@ -2,8 +2,7 @@ import sys
 n, m = map(int, sys.stdin.readline().split())
 earns = list(map(int, sys.stdin.readline().split()))
 
-e = sum(earns[:m])
-max_e = e
+e = max_e = sum(earns[:m])
 
 for i in range(m, n):
     e = e + earns[i] - earns[i - m]
