@@ -23,7 +23,7 @@ public class Main {
         }
 
 //        최소공약수
-        int lcm = (a / gcd) * (b / gcd) * gcd;
+        int lcm = a * b / gcd;
 
         System.out.println(gcd);
         System.out.println(lcm);
