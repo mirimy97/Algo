@@ -1,18 +1,20 @@
 import sys
-from collections import deque
+from heapq import heappush, heappop
 
-def bfs(start, end):
+def dij(start, end):
     v = [0] * V  # visited
-    q = deque([start])
     v[start] = 1
-    while q:
-        now = q.popleft()
+    heap = [(1, start)]
+    while heap and not v[end]:
+        cost, now = heappop(heap)
+        if v[now] and v[now] < cost:
+            continue
+        v[now] = cost
         for next in range(V):
-            if (not v[next] or v[next] > v[now] + arr[now][next]) and arr[now][next] != 10001:
-                if next not in q:
-                    q.append(next)
-                v[next] = v[now] + arr[now][next]
-    return v[end]
+            if not v[next] and arr[now][next] != 10001:
+                heappush(heap, (v[now] + arr[now][next], next))
+
+    return v[end] - 1
 
 V, E, P = map(int, sys.stdin.readline().split())
 arr = [[10001] * V for _ in range(V)]
@@ -21,7 +23,7 @@ for i in range(E):
     arr[a - 1][b - 1] = c
     arr[b - 1][a - 1] = c
 
-if bfs(0, V - 1) >= bfs(0, P - 1) + bfs(P - 1, V - 1) - 1:
+if dij(0, V - 1) >= dij(0, P - 1) + dij(P - 1, V - 1):
     print("SAVE HIM")
 else:
     print("GOOD BYE")
