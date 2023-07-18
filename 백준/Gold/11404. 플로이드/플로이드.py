@@ -23,7 +23,8 @@ for start in range(n):
         start = q.popleft()
         for end in range(n):
             if (not visited[end] or visited[end] > visited[start] + arr[start][end]) and arr[start][end] != 100001:
-                q.append(end)
+                if end not in q:
+                    q.append(end)
                 visited[end] = visited[start] + arr[start][end]
     print(" ".join(map(print_style, visited)))
 
