@@ -2,16 +2,15 @@ import sys
 from collections import deque
 
 def bfs(start, end):
-    global V
     v = [0] * V  # visited
-
     q = deque([start])
     v[start] = 1
     while q:
         now = q.popleft()
         for next in range(V):
             if (not v[next] or v[next] > v[now] + arr[now][next]) and arr[now][next] != 10001:
-                q.append(next)
+                if next not in q:
+                    q.append(next)
                 v[next] = v[now] + arr[now][next]
     return v[end]
 
