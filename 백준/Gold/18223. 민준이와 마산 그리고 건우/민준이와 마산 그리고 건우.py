@@ -23,7 +23,7 @@ for i in range(E):
     arr[a - 1][b - 1] = c
     arr[b - 1][a - 1] = c
 
-if dij(0, V - 1) >= dij(0, P - 1) + dij(P - 1, V - 1):
+if dij(0, V - 1) == dij(0, P - 1) + dij(P - 1, V - 1):
     print("SAVE HIM")
 else:
     print("GOOD BYE")
