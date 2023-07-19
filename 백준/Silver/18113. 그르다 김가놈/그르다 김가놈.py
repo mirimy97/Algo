@@ -11,10 +11,6 @@ for i in range(N):
     else:
         L.append(long - (2 * K))
 
-if len(L) == 0:
-    print(-1)
-    exit(0)
-
 P = -1
 l, r = 1, sum(L) // M    # 김밥 길이의 범위
 
