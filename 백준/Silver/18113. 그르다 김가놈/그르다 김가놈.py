@@ -16,7 +16,7 @@ if len(L) == 0:
     exit(0)
 
 P = -1
-l,r = 1,max(L)
+l, r = 1, sum(L) // M    # 김밥 길이의 범위
 
 while l <= r:
 
