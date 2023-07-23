@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 public class Main {
     public static boolean [] chosen;
+    public static int [] p;
 
     public static void main(String[] args) throws IOException {
 
@@ -12,14 +13,14 @@ public class Main {
         int N = Integer.parseInt(br.readLine());
         chosen = new boolean[N];
         Arrays.fill(chosen, false);
-        int [] p = new int[N];
-        perm(N, 0, p);
+        p = new int[N];
+        perm(N, 0);
 
         br.close();
 
     }
 
-    public static void perm(int N, int cnt, int [] p) {
+    public static void perm(int N, int cnt) {
         if (cnt == N) {
             //  p 출력
             for (int j = 0; j < N; j++) {
@@ -32,7 +33,7 @@ public class Main {
             if (chosen[i] == true) continue;
             chosen[i] = true;
             p[cnt] = i + 1;
-            perm(N, cnt + 1, p);
+            perm(N, cnt + 1);
             chosen[i] = false;
         }
     }
