@@ -2,7 +2,6 @@ import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Comparator;
 
 class Solution {
     public ArrayList<Integer> solution(String[] genres, int[] plays) {
@@ -21,26 +20,14 @@ class Solution {
             s += plays[i];
             hap.put(genres[i], s);
         }
-        int max1 = 0;
-        int max2 = 0;
         List<Map.Entry<String, Integer>> entryList = new ArrayList<>(hap.entrySet());
         entryList.sort((e1, e2) -> -e1.getValue().compareTo(e2.getValue()));
-        System.out.println(entryList);
-        int k = 0;
-        int v = 0;
 
-        int idx1, idx2;
-        max1 = 0;
-        max2 = 0;
-        // gen1
+        int idx1, idx2, max1, max2;
         for (Map.Entry<String, Integer> entry : entryList) {
             
             ArrayList<Integer> indexList = map.get(entry.getKey());
-            System.out.println(indexList);
-            idx1 = -1;
-            idx2 = -1;  
-            max1 = -1;
-            max2 = -1;
+            idx1 = idx2 = max1 = max2 = 0;
             for (int i = 0; i < indexList.size(); i++) {
                 if (plays[indexList.get(i)] > max1) {
                     max2 = max1;
@@ -56,10 +43,6 @@ class Solution {
             if (idx2 != -1) answer.add(idx2);
         }        
         
-      
-        
-        System.out.println(map);
-        System.out.println(hap);
         return answer;
     }
 }
