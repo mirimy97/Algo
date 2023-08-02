@@ -1,7 +1,7 @@
 -- 코드를 입력하세요
-SELECT OUTS.ANIMAL_ID, OUTS.NAME
-FROM ANIMAL_OUTS OUTS
-JOIN ANIMAL_INS INS
-ON OUTS.ANIMAL_ID = INS.ANIMAL_ID
-WHERE OUTS.DATETIME < INS.DATETIME
-ORDER BY INS.DATETIME;
+SELECT a.animal_id, a.name
+from animal_ins a
+inner join animal_outs b
+on a.animal_id = b.animal_id
+where a.datetime > b.datetime
+order by a.datetime;
