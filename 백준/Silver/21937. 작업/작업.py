@@ -1,4 +1,5 @@
 import sys
+from collections import deque
 input = sys.stdin.readline
 
 N, M = map(int, input().split())
@@ -7,7 +8,7 @@ for _ in range(M):
     S, E = map(int, input().split())
     arr[E].append(S)
 X = int(input())
-q = [X]
+q = deque([X])
 v = [0] * (N + 1)
 cnt = -1
 while q:
