@@ -5,7 +5,7 @@ N = int(input())
 cost = [0] * N
 for i in range(N):
     cost[i] = list(map(int, input().split()))
-min_value = 2147000000
+min_value = 1000 * N
 for c in range(3):
     memo = [[1000 * N] * 3] + [[0] * 3 for _ in range(N-1)]
     memo[0][c] = cost[0][c]
