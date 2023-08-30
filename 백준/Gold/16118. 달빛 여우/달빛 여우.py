@@ -38,4 +38,8 @@ while q:
             v_wolf[e][fast] = new_cost
             heappush(q, (new_cost, e, not fast))
 
-print(sum(1 for i in range(2, N+1) if v_fox[i] < min(v_wolf[i][0], v_wolf[i][1])))
+cnt = 0
+for i in range(2, N + 1):
+    if v_fox[i] < min(v_wolf[i]):
+        cnt += 1
+print(cnt)
