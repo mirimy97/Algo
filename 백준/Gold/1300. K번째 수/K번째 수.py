@@ -14,7 +14,7 @@ left = 1
 right = k
 ans = 0
 while left <= right:
-    middle = (left + right) // 2    # idx 번째에 있는 값 B[k]
+    middle = (left + right) // 2 
     count = rank(middle)
     if count < k:
         left = middle + 1
