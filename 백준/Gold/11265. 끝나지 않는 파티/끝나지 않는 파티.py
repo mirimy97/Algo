@@ -1,5 +1,5 @@
 import sys
-from heapq import heappush, heappop
+from collections import deque
 input = sys.stdin.readline
 
 N, M = map(int, input().split())
@@ -12,14 +12,14 @@ for _ in range(M):
     B -= 1
     if not V[A]:
         v = [0] * N
-        q = [(0, A)]
+        q = deque([A])
         v[A] = 1
         while q:
-            c, s = heappop(q)
+            s = q.popleft()
             for e in range(N):
                 if not v[e] or v[e] > v[s] + arr[s][e]:
                     v[e] = v[s] + arr[s][e]
-                    heappush(q, (v[s] + arr[s][e], e))
+                    q.append(e)
         V[A] = v
     if V[A][B] - 1 <= C:
         print('Enjoy other party')
