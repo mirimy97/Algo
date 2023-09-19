@@ -9,4 +9,3 @@ where car_id in (select car_id
      and start_date between to_date('2022-08-01', 'YYYY-MM-DD') and to_date('2022-10-31', 'YYYY-MM-DD')
 group by extract(month from start_date), car_id
 order by extract(month from start_date), car_id desc;
-
