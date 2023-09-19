@@ -1,10 +1,10 @@
--- 코드를 입력하세요
-select *
-from (SELECT name, datetime
-        from animal_ins
-        where animal_id not in (select a.animal_id
-                                 from animal_ins a
-                                 inner join animal_outs b
-                                 on a.animal_id = b.animal_id)
-        order by datetime)
-where rownum <= 3;
+SELECT NAME, DATETIME
+FROM (SELECT NAME, DATETIME
+     FROM ANIMAL_INS
+     WHERE ANIMAL_ID NOT IN (SELECT A.ANIMAL_ID
+                       FROM ANIMAL_INS A
+                       INNER JOIN ANIMAL_OUTS B
+                       ON A.ANIMAL_ID = B.ANIMAL_ID)
+    ORDER BY DATETIME)
+WHERE ROWNUM <= 3
+ORDER BY DATETIME
