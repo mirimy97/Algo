@@ -9,9 +9,12 @@ for _ in range(t):
     for i in range(n):
         tel[i] = input().rstrip()
     tel.sort()
-    H = {}
     possible = True
+    first = -1
     for num in tel:
+        if num[0] != first:
+            first = num[0]
+            H = {}
         for i in range(1, len(num) + 1):
             if num[:i] in H:
                 possible = False
