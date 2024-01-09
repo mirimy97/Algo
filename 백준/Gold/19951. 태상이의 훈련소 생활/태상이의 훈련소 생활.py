@@ -11,4 +11,5 @@ for _ in range(M):
     memo[b + 1] -= k
 for i in range(1, N + 1):
     memo[i] += memo[i - 1]
+for i in range(1, N + 1):
     print(H[i] + memo[i], end=" ")
