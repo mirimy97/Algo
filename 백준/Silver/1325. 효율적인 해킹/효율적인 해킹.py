@@ -3,18 +3,18 @@ from collections import deque
 input = sys.stdin.readline
 
 N, M = map(int, input().split())
-h = {i : [] for i in range(1, N + 1)}
-cnt = [0] * (N + 1)    # (번호, cnt)
+arr = [[] for _ in range(N + 1)]
+cnt = [0] * (N + 1) 
 for _ in range(M):
     A, B = map(int, input().split())
-    h[B].append(A)
+    arr[B].append(A)
 for S in range(1, N + 1):
     q = deque([S])
     v = [0] * (N + 1)
     v[S] = 1
     while q:
         s = q.popleft()
-        for e in h[s]:
+        for e in arr[s]:
             if not v[e]:
                 q.append(e)
                 cnt[S] += 1
