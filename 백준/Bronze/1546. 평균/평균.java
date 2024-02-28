@@ -16,7 +16,8 @@ public class Main {
             sum += val;
             maxVal = Math.max(val, maxVal);
         }
-        float avg = (float) sum / N;
-        System.out.println(avg / maxVal * 100);
+        
+        // sum은 int, 계산하려는 결과는 float 일 때, 계산과정에 소수점을 임의로 넣어서 float로 형변환 할 수 있다.
+        System.out.println(sum * 100.0 / N / maxVal);
     }
 }
